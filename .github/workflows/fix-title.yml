@@ -1,0 +1,29 @@
+name: Fix title SEO
+on:
+  workflow_dispatch:
+jobs:
+  fix-title:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fix title order
+        run: |
+          python3 -c "
+          content = open('index.html', encoding='utf-8').read()
+          old = '<title>Tairiny Rodrigues Advocacia Previdenciária</title>'
+          new = '<title>Tairiny Rodrigues Advocacia | Direito Previdenciário</title>'
+          if old in content:
+            content = content.replace(old, new)
+            open('index.html', 'w', encoding='utf-8').write(content)
+            print('SUCCESS: title fixed')
+          else:
+            print('NOT FOUND')
+          "
+      - name: Commit fix
+        run: |
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git add index.html
+          git diff --staged --quiet && echo "No changes" || (git commit -m "fix: title format Tairiny Rodrigues Advocacia | Direito Previdenciário" && git push)
