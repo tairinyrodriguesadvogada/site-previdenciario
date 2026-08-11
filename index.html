@@ -347,8 +347,34 @@ footer{background:rgba(255,255,255,0.85);backdrop-filter:blur(12px);border-top:1
   .toast-social{max-width:260px;left:16px;bottom:90px}
 }
 </style>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({"gtm.start":
+new Date().getTime(),event:"gtm.js"});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
+"https://www.googletagmanager.com/gtm.js?id="+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,"script","dataLayer","GTM-N7XMTNQL");</script>
+<!-- End Google Tag Manager -->
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6030V2DGNR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-6030V2DGNR", {send_page_view: true});
+  (function(){
+    var u=["utm_source","utm_medium","utm_campaign","utm_term","utm_content"];
+    var p=new URLSearchParams(window.location.search);
+    u.forEach(function(k){if(p.get(k))sessionStorage.setItem(k,p.get(k));});
+  })();
+</script>
+<!-- /Analytics -->
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N7XMTNQL"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
 
 <!-- AURORA -->
 <div class="aurora">
@@ -1208,6 +1234,26 @@ document.getElementById('modalRes').addEventListener('click', function(e){
   if(e.target === this) fecharModalRes();
 });
 
+</script>
+
+<!-- ════════════ LGPD ════════════ -->
+<div id="lgpdBanner" style="position:fixed;bottom:0;left:0;right:0;z-index:9999;background:rgba(13,13,13,0.97);backdrop-filter:blur(16px);border-top:1px solid rgba(255,255,255,0.08);padding:18px 6%;display:none;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
+  <p style="font-size:13px;color:rgba(255,255,255,0.8);line-height:1.65;flex:1;min-width:220px;margin:0">Este site utiliza cookies para melhorar sua experiência. Ao continuar navegando, você concorda com nossa <a href="#privacidade" style="color:#2d6a2d;text-decoration:underline">Política de Privacidade</a>, em conformidade com a <strong style="color:#fff">Lei Geral de Proteção de Dados (LGPD — Lei 13.709/2018)</strong>.</p>
+  <button onclick="aceitarLgpd()" style="background:#2d6a2d;color:#fff;border:none;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:12px 28px;border-radius:6px;cursor:pointer;flex-shrink:0">Aceitar</button>
+</div>
+<script>
+function aceitarLgpd(){
+  try{ localStorage.setItem('lgpd_ok','1'); }catch(e){}
+  var b=document.getElementById('lgpdBanner'); if(b) b.style.display='none';
+}
+(function(){
+  var ok=false;
+  try{ ok = localStorage.getItem('lgpd_ok')==='1'; }catch(e){}
+  if(!ok){
+    var b=document.getElementById('lgpdBanner');
+    if(b) b.style.display='flex';
+  }
+})();
 </script>
 </body>
 </html>
