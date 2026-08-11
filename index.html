@@ -7,7 +7,7 @@
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Tairiny Rodrigues Advocacia Previdenciária">
-<meta property="og:description" content="Advogada trabalhista OAB/DF 87.023. Defesa do trabalhador em todo o Brasil.">
+<meta property="og:description" content="Advogada previdenciária OAB/DF 87.023. Especialista em aposentadorias, BPC/LOAS, auxílio-doença e revisão de benefícios do INSS.">
 <meta property="og:url" content="https://previdenciario.tairinyemarcio.adv.br">
 <meta property="og:site_name" content="Tairiny Rodrigues Advocacia Previdenciária">
 <meta name="robots" content="index, follow">
@@ -102,6 +102,15 @@ nav{padding:0 25px}
   .hero-center > div{padding-top:38vh !important}
   #sobre-dra h2{font-size:32px !important}
 }
+
+/* ── Social Proof Toast ─────────────────────────────────────────────────── */
+.toast-social{position:fixed;bottom:100px;left:24px;z-index:5000;background:#fff;border-radius:12px;padding:14px 18px;box-shadow:0 8px 32px rgba(0,0,0,.15);border:1px solid rgba(8,131,149,0.2);display:flex;align-items:center;gap:12px;max-width:300px;transform:translateX(-120%);opacity:0;transition:all .45s cubic-bezier(.23,1,.32,1);pointer-events:none}
+.toast-social.show{transform:translateX(0);opacity:1}
+.toast-icon{width:36px;height:36px;background:linear-gradient(135deg,#0A4D68,#088395);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px}
+.toast-txt strong{display:block;font-size:13px;font-weight:700;color:#0a0a0a;line-height:1.3}
+.toast-txt span{font-size:11px;color:#6C757D;font-weight:500}
+.toast-dot{width:6px;height:6px;background:#25D366;border-radius:50%;flex-shrink:0;animation:toastBlink 1.5s ease-in-out infinite}
+@keyframes toastBlink{0%,100%{opacity:1}50%{opacity:.3}}
 </style>
 
 <style>
@@ -129,6 +138,174 @@ nav, .navbar, header { background: rgba(7,15,9,0.97) !important; }
 select, input[type=number], input[type=text] {
   background: #0d2116 !important;
 }
+
+/* ══════════════════════════════════════════════
+   MICROINTERAÇÕES PREMIUM — Tairiny Rodrigues
+   ══════════════════════════════════════════════ */
+
+/* ── MARQUEE STRIP ── */
+.tr-marquee-strip {
+    background: var(--secondary, #0a1628);
+    padding: 11px 0;
+    overflow: hidden;
+    position: relative;
+    z-index: 100;
+}
+.tr-marquee-track {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    animation: trMarquee 40s linear infinite;
+}
+.tr-marquee-strip:hover .tr-marquee-track {
+    animation-play-state: paused;
+}
+.tr-marquee-item {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    color: rgba(255,255,255,0.82);
+    font-size: 0.73rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0 20px;
+}
+.tr-marquee-sep {
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--primary, #e8a020);
+    opacity: 0.8;
+    flex-shrink: 0;
+}
+@keyframes trMarquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+    .tr-marquee-track { animation: none; }
+}
+
+/* ── CUSTOM CURSOR ── */
+.tr-cc-dot {
+    position: fixed;
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--primary, #e8a020);
+    pointer-events: none;
+    z-index: 99999;
+    transform: translate(-50%, -50%);
+    transition: width 0.18s ease, height 0.18s ease, opacity 0.18s ease;
+    opacity: 0.9;
+    will-change: left, top;
+}
+.tr-cc-ring {
+    position: fixed;
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    border: 1.5px solid var(--primary, #e8a020);
+    pointer-events: none;
+    z-index: 99998;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s ease, height 0.2s ease, opacity 0.2s ease;
+    opacity: 0.4;
+    will-change: left, top;
+}
+.tr-cc-ring.tr-hover { width: 46px; height: 46px; opacity: 0.65; }
+.tr-cc-dot.tr-hover  { width: 5px;  height: 5px;  opacity: 1; }
+@media (hover: none), (pointer: coarse) {
+    .tr-cc-dot, .tr-cc-ring { display: none !important; }
+}
+
+/* ── CARROSSEL DE CARDS ── */
+.tr-carousel-wrap {
+    overflow: hidden;
+    position: relative;
+    margin: 0 -8px;
+    cursor: default;
+}
+.tr-carousel-wrap:hover .tr-carousel-track { animation-play-state: paused; }
+.tr-carousel-track {
+    display: flex;
+    gap: 16px;
+    padding: 12px 16px 24px;
+    width: max-content;
+    animation: trCarousel 30s linear infinite;
+    align-items: stretch;
+}
+@keyframes trCarousel {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+.tr-carousel-card {
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 14px;
+    padding: 22px 20px 18px;
+    width: 240px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+    border-top: 3px solid transparent;
+    overflow: hidden;
+}
+.tr-carousel-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+    border-top-color: var(--primary, #e8a020);
+}
+.tr-carousel-card .tc-icon {
+    font-size: 1.6rem;
+    line-height: 1;
+}
+.tr-carousel-card h4 {
+    margin: 0;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--secondary, #0a1628);
+    line-height: 1.3;
+}
+.tr-carousel-card p {
+    margin: 0;
+    font-size: 0.75rem;
+    color: #555;
+    line-height: 1.5;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+.tr-carousel-card:hover p {
+    max-height: 120px;
+    opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+    .tr-carousel-track { animation: none; }
+}
+@media (hover: none) {
+    .tr-carousel-card p { max-height: none; opacity: 1; }
+}
+
+/* ── HOVERS GLOBAIS PREMIUM ── */
+.step { transition: transform 0.2s ease, box-shadow 0.2s ease !important; }
+.step:hover { transform: translateY(-3px); box-shadow: 0 8px 22px rgba(0,0,0,0.1) !important; }
+.benefit-card, .feature-card { transition: transform 0.2s ease, box-shadow 0.2s ease !important; }
+.benefit-card:hover, .feature-card:hover { transform: translateY(-3px); box-shadow: 0 8px 22px rgba(0,0,0,0.1) !important; }
+.precedent { transition: transform 0.2s ease, box-shadow 0.2s ease !important; }
+.precedent:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,0.09) !important; }
+.cta-button, .btn-primary, .btn-cta {
+    transition: transform 0.18s ease, filter 0.18s ease, box-shadow 0.18s ease !important;
+}
+.cta-button:hover, .btn-primary:hover, .btn-cta:hover {
+    transform: translateY(-2px) scale(1.015) !important;
+    filter: brightness(1.07) !important;
+    box-shadow: 0 6px 22px rgba(0,0,0,0.18) !important;
+}
+.faq-item, .faq-question { transition: background 0.18s ease !important; }
 </style>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({"gtm.start":
@@ -234,128 +411,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
 </section>
-
-<section id="sobre" class="section">
-  <h2>Sobre o Escritório</h2>
-  <p>Na Tairiny Rodrigues Advocacia Previdenciária, dedico-me exclusivamente ao Direito Previdenciário com o propósito de defender os direitos dos trabalhadores. Com atendimento estratégico, humanizado e tecnicamente qualificado, auxilio cada cliente na resolução de questões como aposentadorias negadas, benefícios cancelados e revisão de benefícios pelo INSS.</p>
-  <p style="margin-top:20px">Atuo com rigor técnico na análise de cada caso — porque um benefício negado pode ser o único sustento de uma família inteira.</p>
-</section>
-
-<section id="areas" class="section areas-bg">
-  <h2>Área de Atuação Previdenciária</h2>
-  <p>Atendo trabalhadores em todo o território nacional nas principais demandas do Direito Previdenciário.</p>
-  <div class="areas-grid">
-    <div class="area-card"><h3>BPC/LOAS — Idoso</h3><p>Benefício assistencial para idosos com 65 anos ou mais em situação de vulnerabilidade socioeconômica, sem necessidade de contribuição prévia ao INSS.</p></div>
-    <div class="area-card"><h3>BPC/LOAS — Pessoa com Deficiência</h3><p>Para pessoas com impedimentos de longo prazo de natureza física, mental, intelectual ou sensorial que limitam a participação plena na sociedade.</p></div>
-    <div class="area-card"><h3>Aposentadoria</h3><p>Planejamento e requerimento de aposentadoria por idade, tempo de contribuição, especial e por incapacidade permanente — com análise de todas as regras de transição da EC 103/2019.</p></div>
-    <div class="area-card"><h3>Auxílio por Incapacidade</h3><p>Para segurados temporariamente incapacitados por doença ou acidente. Atuo em casos negados ou cancelados indevidamente pelo INSS.</p></div>
-    <div class="area-card"><h3>Pensão por Morte</h3><p>Benefício garantido aos dependentes do segurado falecido. Atuo na concessão, revisão de cotas e impugnação de cancelamentos indevidos pelo INSS.</p></div>
-    <div class="area-card"><h3>Salário-Maternidade</h3><p>Para seguradas com o benefício negado ou cancelado — empregadas CLT, MEI, autônomas e seguradas especiais rurais.</p></div>
-    <div class="area-card"><h3>Revisão de Benefícios</h3><p>Análise de benefícios concedidos com valor inferior ao devido. Corrijo o histórico previdenciário e recupero diferenças com juros e correção monetária.</p></div>
-    
-    
-    <div class="area-card"><h3>Auxílio-Acidente de Trabalho</h3><p>Benefício pago ao trabalhador que sofreu acidente e ficou com sequela permanente que reduz a capacidade laboral. Cumulável com o salário — é a ponte entre o Direito do Trabalho e o Previdenciário. Atuo na concessão e revisão junto ao INSS.</p></div>
-    <div class="area-card"><h3>BPC/TEA — Autismo</h3><p>Benefício de Prestação Continuada para pessoas com Transtorno do Espectro Autista. A Lei 12.764/2012 assegura direitos específicos — atuo em casos de indeferimento, contestação de laudo pericial e defesa de regularidade do benefício.</p></div>
-  </div>
-</section>
-
-<!-- ════ AGENDE — após áreas ════ -->
-<section style="background:#080f0a;padding:72px 8%;text-align:center;border-top:1px solid rgba(212,175,55,0.08)">
-  <p style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#d4af37;margin-bottom:14px">Atendimento Especializado</p>
-  <h3 style="font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3.5vw,42px);color:#fff;font-weight:700;margin-bottom:32px">Reconhece alguma dessas situações previdenciárias?<br><em style="color:#d4af37;font-style:italic">Agende uma consulta.</em></h3>
-  <div style="display:flex;gap:16px;flex-wrap:wrap;justify-content:center;align-items:center">
-    <!-- Calendly -->
-    <a href="http://linkstrabalhista-previdenciario.tairinyrodrigues.adv.br" target="_blank"
-       style="display:inline-flex;align-items:center;gap:10px;background:#d4af37;color:#000;font-family:'Inter',sans-serif;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:16px 36px;text-decoration:none;transition:opacity 0.2s"
-       onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 4h-1V2h-2v2H8V2H6v2H5C3.89 4 3 4.9 3 6v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg>
-      Agendar consulta
-    </a>
-    <!-- WhatsApp alternativo -->
-    <a href="https://wa.me/5561920046994?text=Olá%2C+Dra.+Tairiny.+Quero+agendar+uma+consulta." target="_blank"
-       style="display:inline-flex;align-items:center;gap:10px;background:transparent;border:1.5px solid rgba(212,175,55,0.4);color:#d4af37;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:16px 36px;text-decoration:none;transition:all 0.25s"
-       onmouseover="this.style.borderColor='#d4af37'" onmouseout="this.style.borderColor='rgba(212,175,55,0.4)'">
-      ou WhatsApp
-    </a>
-  </div>
-</section>
+<div class="tr-marquee-strip" aria-hidden="true"><div class="tr-marquee-track"><span class="tr-marquee-item">ANÁLISE GRATUITA</span><span class="tr-marquee-sep"></span><span class="tr-marquee-item">APOSENTADORIA</span><span class="tr-marquee-sep"></span><span class="tr-marquee-item">BPC/LOAS</span><span class="tr-marquee-sep"></span><span class="tr-marquee-item">AUXÍLIO INCAPACIDADE</span><span class="tr-marquee-sep"></span><span class="tr-marquee-item">PENSÃO POR MORTE</span><span class="tr-marquee-sep"></span><span class="tr-marquee-item">BENEFÍCIO NEGADO</span><span class="tr-marquee-sep"></span><span class="tr-marquee-item">ANÁLISE GRATUITA</span><span class="tr-marquee-sep"></span><span class="tr-marquee-item">APOSENTADORIA</span><span class="tr-marquee-sep"></span><span class="tr-marquee-item">BPC/LOAS</span><span class="tr-marquee-sep"></span><span class="tr-marquee-item">AUXÍLIO INCAPACIDADE</span><span class="tr-marquee-sep"></span><span class="tr-marquee-item">PENSÃO POR MORTE</span><span class="tr-marquee-sep"></span><span class="tr-marquee-item">BENEFÍCIO NEGADO</span><span class="tr-marquee-sep"></span></div></div>
 
 
-<section class="section" style="background:#080808;border-top:1px solid rgba(212,175,55,0.08)">
-  <h2>Como Atuo</h2>
-  <p style="margin-bottom:50px">Cada caso é único. Conheça as frentes em que atuo para garantir seu benefício.</p>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:40px">
-    <div style="border-left:2px solid #d4af37;padding-left:28px">
-      <h3 style="font-family:'Cormorant Garamond',serif;font-size:22px;color:#d4af37;margin-bottom:14px">Ação Judicial contra o INSS</h3>
-      <p style="color:#999;font-size:15px;line-height:1.85">Defendo seus direitos em ações judiciais contra o INSS — aposentadorias negadas, benefícios cancelados e irregularidades no sistema previdenciário. Atuo com rigor técnico na busca por reparação e indenização em todas as instâncias da Justiça do Trabalho.</p>
-    
-
-
-</div>
-    <div style="border-left:2px solid #d4af37;padding-left:28px">
-      <h3 style="font-family:'Cormorant Garamond',serif;font-size:22px;color:#d4af37;margin-bottom:14px">Planejamento Previdenciário</h3>
-      <p style="color:#999;font-size:15px;line-height:1.85">Ofereço orientação personalizada para análise da situação laboral: revisão de contrato, apuração de hora extra não paga e estratégia para lidar com assédio ou discriminação. Atendimento humanizado para que você conheça seus direitos e tome decisões com segurança.</p>
-    </div>
-    <div style="border-left:2px solid #d4af37;padding-left:28px">
-      <h3 style="font-family:'Cormorant Garamond',serif;font-size:22px;color:#d4af37;margin-bottom:14px">Requerimento Administrativo</h3>
-      <p style="color:#999;font-size:15px;line-height:1.85">Atuo em negociação direta com o empregador — acordo para pagamento de pendência, rescisão amigável e compensação por acidente de trabalho ou burnout. Priorizo a solução eficiente que proteja seus interesses sem a necessidade de longa tramitação processual.</p>
-    </div>
-  </div>
-</section>
-
-
-
-
-
-
-<!-- ════════════ SOBRE A DRA. ════════════ -->
-
-
-<!-- ════════════ REQUISITOS LEGAIS ════════════ -->
-<section id="requisitos" class="section" style="background:#070f09;border-top:1px solid rgba(212,175,55,0.08)">
-  <div style="max-width:900px;margin:0 auto">
-    <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#d4af37;margin-bottom:16px;font-family:'Inter',sans-serif">Base Legal Previdenciária</p>
-    <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,48px);color:#fff;font-weight:700;line-height:1.1;margin-bottom:48px">Requisitos <em style="color:#d4af37;font-style:italic">Legais</em></h2>
-    <div style="display:flex;flex-direction:column;gap:0">
-      <div style="border-left:2px solid #d4af37;padding:28px 32px;border-bottom:1px solid rgba(212,175,55,0.1)">
-        <p style="font-family:'Inter',sans-serif;font-size:10px;letter-spacing:2px;color:#666;text-transform:uppercase;margin-bottom:8px">01 — Lei 8.213/91, art. 42</p>
-        <h3 style="font-family:'Cormorant Garamond',serif;font-size:22px;color:#d4af37;margin-bottom:10px">Nulidade de atos fraudulentos</h3>
-        <p style="color:#999;font-size:14px;line-height:1.8">São nulos de pleno direito os atos praticados com o objetivo de desvirtuar, impedir ou fraudar a aplicação dos preceitos contidos na CLT — inclusive contratos PJ, pejotização e terceirização ilícita.</p>
-      </div>
-      <div style="border-left:2px solid #d4af37;padding:28px 32px;border-bottom:1px solid rgba(212,175,55,0.1)">
-        <p style="font-family:'Inter',sans-serif;font-size:10px;letter-spacing:2px;color:#666;text-transform:uppercase;margin-bottom:8px">02 — Lei 8.213/91, art. 201 + EC 103/2019</p>
-        <h3 style="font-family:'Cormorant Garamond',serif;font-size:22px;color:#d4af37;margin-bottom:10px">Rescisão indireta</h3>
-        <p style="color:#999;font-size:14px;line-height:1.8">O empregado poderá considerar rescindido o contrato e pleitear a devida indenização quando o empregador descumprir obrigações contratuais ou legais, praticar atos lesivos, exigir serviços além de suas forças ou atentatórios à dignidade.</p>
-      </div>
-      <div style="border-left:2px solid #d4af37;padding:28px 32px;border-bottom:1px solid rgba(212,175,55,0.1)">
-        <p style="font-family:'Inter',sans-serif;font-size:10px;letter-spacing:2px;color:#666;text-transform:uppercase;margin-bottom:8px">03 — Lei 8.742/93 (LOAS), art. 20</p>
-        <h3 style="font-family:'Cormorant Garamond',serif;font-size:22px;color:#d4af37;margin-bottom:10px">Horas extras</h3>
-        <p style="color:#999;font-size:14px;line-height:1.8">É direito constitucional do trabalhador a remuneração do serviço extraordinário superior, no mínimo, em cinquenta por cento à do normal. O prazo prescricional é de 5 anos para trabalhadores urbanos.</p>
-      </div>
-      <div style="border-left:2px solid #d4af37;padding:28px 32px">
-        <p style="font-family:'Inter',sans-serif;font-size:10px;letter-spacing:2px;color:#666;text-transform:uppercase;margin-bottom:8px">04 — LC 142/2013</p>
-        <h3 style="font-family:'Cormorant Garamond',serif;font-size:22px;color:#d4af37;margin-bottom:10px">Assédio moral e dano existencial</h3>
-        <p style="color:#999;font-size:14px;line-height:1.8">A prática de atos discriminatórios, humilhantes ou atentatórios à dignidade do trabalhador gera direito à reparação por dano moral e, nos casos de comprometimento do projeto de vida, dano existencial — com base na responsabilidade civil objetiva ou subjetiva do empregador.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ════════════ ANALISAR MEU CASO ════════════ -->
-<section id="analise" style="background:linear-gradient(135deg,#0d0d0d 0%,#111 100%);padding:100px 80px;text-align:center;border-top:1px solid rgba(212,175,55,0.08)">
-  <div style="max-width:700px;margin:0 auto">
-    <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#d4af37;margin-bottom:16px;font-family:'Inter',sans-serif">Análise Gratuita</p>
-    <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(30px,4vw,52px);color:#fff;font-weight:700;line-height:1.1;margin-bottom:20px">Você tem um benefício negado ou a menor? <em style="color:#d4af37;font-style:italic">Vamos analisar.</em></h2>
-    <p style="font-family:'Inter',sans-serif;font-size:16px;color:#999;line-height:1.8;margin-bottom:40px">Envie seu CNIS ou descreva sua situação pelo WhatsApp. Analiso e respondo com agilidade.</p>
-    <a href="https://wa.me/5561920046994?text=Olá%2C+Dra.+Tairiny.+Gostaria+de+analisar+meu+caso+trabalhista." target="_blank"
-       style="display:inline-block;background:#d4af37;color:#000;font-family:'Inter',sans-serif;font-size:14px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:20px 48px;text-decoration:none;transition:opacity 0.2s"
-       onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
-      Analisar meu benefício agora
-    </a>
-  </div>
-</section>
-
-<!-- ════════════ FAQ TRABALHISTA ════════════ -->
 
 <section id="calculadora" style="background:linear-gradient(135deg,#070f09 0%,#0f1f12 100%);padding:80px 0;">
 <div style="max-width:800px;margin:0 auto;padding:0 24px;">
@@ -431,6 +489,123 @@ function calcularCarenciaPrev(){
 }
 </script>
 </section>
+
+<section id="areas" class="section areas-bg">
+  <h2>Área de Atuação Previdenciária</h2>
+  <p>Atendo trabalhadores em todo o território nacional nas principais demandas do Direito Previdenciário.</p>
+  <div class="areas-grid">
+    <div class="area-card"><h3>BPC/LOAS — Idoso</h3><p>Benefício assistencial para idosos com 65 anos ou mais em situação de vulnerabilidade socioeconômica, sem necessidade de contribuição prévia ao INSS.</p></div>
+    <div class="area-card"><h3>BPC/LOAS — Pessoa com Deficiência</h3><p>Para pessoas com impedimentos de longo prazo de natureza física, mental, intelectual ou sensorial que limitam a participação plena na sociedade.</p></div>
+    <div class="area-card"><h3>Aposentadoria</h3><p>Planejamento e requerimento de aposentadoria por idade, tempo de contribuição, especial e por incapacidade permanente — com análise de todas as regras de transição da EC 103/2019.</p></div>
+    <div class="area-card"><h3>Auxílio por Incapacidade</h3><p>Para segurados temporariamente incapacitados por doença ou acidente. Atuo em casos negados ou cancelados indevidamente pelo INSS.</p></div>
+    <div class="area-card"><h3>Pensão por Morte</h3><p>Benefício garantido aos dependentes do segurado falecido. Atuo na concessão, revisão de cotas e impugnação de cancelamentos indevidos pelo INSS.</p></div>
+    <div class="area-card"><h3>Salário-Maternidade</h3><p>Para seguradas com o benefício negado ou cancelado — empregadas CLT, MEI, autônomas e seguradas especiais rurais.</p></div>
+    <div class="area-card"><h3>Revisão de Benefícios</h3><p>Análise de benefícios concedidos com valor inferior ao devido. Corrijo o histórico previdenciário e recupero diferenças com juros e correção monetária.</p></div>
+    
+    
+    <div class="area-card"><h3>Auxílio-Acidente de Trabalho</h3><p>Benefício pago ao trabalhador que sofreu acidente e ficou com sequela permanente que reduz a capacidade laboral. Cumulável com o salário — é a ponte entre o Direito do Trabalho e o Previdenciário. Atuo na concessão e revisão junto ao INSS.</p></div>
+    <div class="area-card"><h3>BPC/TEA — Autismo</h3><p>Benefício de Prestação Continuada para pessoas com Transtorno do Espectro Autista. A Lei 12.764/2012 assegura direitos específicos — atuo em casos de indeferimento, contestação de laudo pericial e defesa de regularidade do benefício.</p></div>
+  </div>
+</section>
+
+<!-- ════ AGENDE — após áreas ════ -->
+<section style="background:#080f0a;padding:72px 8%;text-align:center;border-top:1px solid rgba(212,175,55,0.08)">
+  <p style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#d4af37;margin-bottom:14px">Atendimento Especializado</p>
+  <h3 style="font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3.5vw,42px);color:#fff;font-weight:700;margin-bottom:32px">Reconhece alguma dessas situações previdenciárias?<br><em style="color:#d4af37;font-style:italic">Agende uma consulta.</em></h3>
+  <div style="display:flex;gap:16px;flex-wrap:wrap;justify-content:center;align-items:center">
+    <!-- Calendly -->
+    <a href="http://linkstrabalhista-previdenciario.tairinyemarcio.adv.br" target="_blank"
+       style="display:inline-flex;align-items:center;gap:10px;background:#d4af37;color:#000;font-family:'Inter',sans-serif;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:16px 36px;text-decoration:none;transition:opacity 0.2s"
+       onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 4h-1V2h-2v2H8V2H6v2H5C3.89 4 3 4.9 3 6v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg>
+      Agendar consulta
+    </a>
+    <!-- WhatsApp alternativo -->
+    <a href="https://wa.me/5561920046994?text=Olá%2C+Dra.+Tairiny.+Quero+agendar+uma+consulta." target="_blank"
+       style="display:inline-flex;align-items:center;gap:10px;background:transparent;border:1.5px solid rgba(212,175,55,0.4);color:#d4af37;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:16px 36px;text-decoration:none;transition:all 0.25s"
+       onmouseover="this.style.borderColor='#d4af37'" onmouseout="this.style.borderColor='rgba(212,175,55,0.4)'">
+      ou WhatsApp
+    </a>
+  </div>
+</section>
+
+
+<section class="section" style="background:#080808;border-top:1px solid rgba(212,175,55,0.08)">
+  <h2>Como Atuo</h2>
+  <p style="margin-bottom:50px">Cada caso é único. Conheça as frentes em que atuo para garantir seu benefício.</p>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:40px">
+    <div style="border-left:2px solid #d4af37;padding-left:28px">
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:22px;color:#d4af37;margin-bottom:14px">Ação Judicial contra o INSS</h3>
+      <p style="color:#999;font-size:15px;line-height:1.85">Defendo seus direitos em ações judiciais contra o INSS — aposentadorias negadas, benefícios cancelados e irregularidades no sistema previdenciário. Atuo com rigor técnico na busca pela concessão ou restabelecimento do benefício em todas as instâncias da Justiça Federal.</p>
+    
+
+
+</div>
+    <div style="border-left:2px solid #d4af37;padding-left:28px">
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:22px;color:#d4af37;margin-bottom:14px">Planejamento Previdenciário</h3>
+      <p style="color:#999;font-size:15px;line-height:1.85">Ofereço análise previdenciária personalizada: verificação do histórico contributivo (CNIS), identificação da melhor regra de aposentadoria, cálculo estimado de benefícios e estratégias para antecipar a concessão dentro das regras de transição da EC 103/2019.</p>
+    </div>
+    <div style="border-left:2px solid #d4af37;padding-left:28px">
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:22px;color:#d4af37;margin-bottom:14px">Requerimento Administrativo</h3>
+      <p style="color:#999;font-size:15px;line-height:1.85">Atuo no requerimento junto ao INSS — preparação e protocolo do pedido de benefício, acompanhamento do processo administrativo e interposição de recursos em caso de indeferimento. Priorizo a solução administrativa eficiente antes de recorrer ao Judiciário.</p>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+<!-- ════════════ SOBRE A DRA. ════════════ -->
+
+
+<!-- ════════════ REQUISITOS LEGAIS ════════════ -->
+<section id="requisitos" class="section" style="background:#070f09;border-top:1px solid rgba(212,175,55,0.08)">
+  <div style="max-width:900px;margin:0 auto">
+    <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#d4af37;margin-bottom:16px;font-family:'Inter',sans-serif">Base Legal Previdenciária</p>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,48px);color:#fff;font-weight:700;line-height:1.1;margin-bottom:48px">Requisitos <em style="color:#d4af37;font-style:italic">Legais</em></h2>
+    <div style="display:flex;flex-direction:column;gap:0">
+      <div style="border-left:2px solid #d4af37;padding:28px 32px;border-bottom:1px solid rgba(212,175,55,0.1)">
+        <p style="font-family:'Inter',sans-serif;font-size:10px;letter-spacing:2px;color:#666;text-transform:uppercase;margin-bottom:8px">01 — Lei 8.213/91, art. 42</p>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:22px;color:#d4af37;margin-bottom:10px">Aposentadoria por Incapacidade Permanente</h3>
+        <p style="color:#999;font-size:14px;line-height:1.8">Concedida ao segurado definitivamente incapaz para qualquer atividade laboral. Exige perícia médica do INSS e carência mínima de 12 contribuições, salvo acidente de qualquer natureza. A renda mensal inicial equivale a 100% do salário de benefício.</p>
+      </div>
+      <div style="border-left:2px solid #d4af37;padding:28px 32px;border-bottom:1px solid rgba(212,175,55,0.1)">
+        <p style="font-family:'Inter',sans-serif;font-size:10px;letter-spacing:2px;color:#666;text-transform:uppercase;margin-bottom:8px">02 — Lei 8.742/93, art. 20</p>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:22px;color:#d4af37;margin-bottom:10px">BPC/LOAS — Benefício de Prestação Continuada</h3>
+        <p style="color:#999;font-size:14px;line-height:1.8">Garantido ao idoso acima de 65 anos ou à pessoa com deficiência com renda familiar per capita inferior a 1/4 do salário mínimo. Não exige contribuição prévia ao INSS — é um benefício assistencial pago diretamente pelo governo federal.</p>
+      </div>
+      <div style="border-left:2px solid #d4af37;padding:28px 32px;border-bottom:1px solid rgba(212,175,55,0.1)">
+        <p style="font-family:'Inter',sans-serif;font-size:10px;letter-spacing:2px;color:#666;text-transform:uppercase;margin-bottom:8px">03 — Lei 8.213/91, art. 59</p>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:22px;color:#d4af37;margin-bottom:10px">Auxílio por Incapacidade Temporária</h3>
+        <p style="color:#999;font-size:14px;line-height:1.8">Pago ao segurado impedido de trabalhar por doença ou acidente por mais de 15 dias consecutivos. Exige carência de 12 contribuições — salvo acidente de qualquer natureza — e comprovação de incapacidade por perícia médica do INSS.</p>
+      </div>
+      <div style="border-left:2px solid #d4af37;padding:28px 32px">
+        <p style="font-family:'Inter',sans-serif;font-size:10px;letter-spacing:2px;color:#666;text-transform:uppercase;margin-bottom:8px">04 — Lei 8.213/91, art. 57</p>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:22px;color:#d4af37;margin-bottom:10px">Aposentadoria Especial</h3>
+        <p style="color:#999;font-size:14px;line-height:1.8">Devida ao segurado exposto a agentes nocivos — físicos, químicos ou biológicos — por 15, 20 ou 25 anos. Exige PPP (Perfil Profissiográfico Previdenciário) e LTCAT fornecidos pelo empregador, comprovando o tempo de exposição ao agente nocivo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ ANALISAR MEU CASO ════════════ -->
+<section id="analise" style="background:linear-gradient(135deg,#0d0d0d 0%,#111 100%);padding:100px 80px;text-align:center;border-top:1px solid rgba(212,175,55,0.08)">
+  <div style="max-width:700px;margin:0 auto">
+    <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#d4af37;margin-bottom:16px;font-family:'Inter',sans-serif">Análise Gratuita</p>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(30px,4vw,52px);color:#fff;font-weight:700;line-height:1.1;margin-bottom:20px">Você tem um benefício negado ou a menor? <em style="color:#d4af37;font-style:italic">Vamos analisar.</em></h2>
+    <p style="font-family:'Inter',sans-serif;font-size:16px;color:#999;line-height:1.8;margin-bottom:40px">Envie seu CNIS ou descreva sua situação pelo WhatsApp. Analiso e respondo com agilidade.</p>
+    <a href="https://wa.me/5561920046994?text=Olá%2C+Dra.+Tairiny.+Gostaria+de+analisar+meu+caso+trabalhista." target="_blank"
+       style="display:inline-block;background:#d4af37;color:#000;font-family:'Inter',sans-serif;font-size:14px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:20px 48px;text-decoration:none;transition:opacity 0.2s"
+       onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
+      Analisar meu benefício agora
+    </a>
+  </div>
+</section>
+
+<!-- ════════════ FAQ PREVIDENCIÁRIO ════════════ -->
+
 <section id="faq" class="section" style="background:#080808;border-top:1px solid rgba(212,175,55,0.08)">
   <div style="max-width:800px;margin:0 auto">
     <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#d4af37;margin-bottom:16px;font-family:'Inter',sans-serif">Dúvidas Frequentes</p>
@@ -443,7 +618,7 @@ function calcularCarenciaPrev(){
           <span style="color:#d4af37;font-size:20px;flex-shrink:0;transition:transform 0.3s" class="faq-icon">+</span>
         </button>
         <div class="faq-answer" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease">
-          <p style="font-family:'Inter',sans-serif;font-size:14px;color:#999;line-height:1.85;padding-bottom:24px">Na demissão sem justa causa, você tem direito a: saldo de salário, aviso prévio (trabalhado ou indenizado), 13º proporcional, férias proporcionais acrescidas de 1/3, multa de 40% sobre o FGTS, liberação do FGTS e habilitação ao seguro-desemprego — conforme arts. 477 e 478 da CLT e Lei 7.998/90.</p>
+          <p style="font-family:'Inter',sans-serif;font-size:14px;color:#999;line-height:1.85;padding-bottom:24px">Você pode recorrer administrativamente ao próprio INSS (CRSS ou JRPS) no prazo de 30 dias corridos da notificação. Se o recurso for indeferido, é possível ingressar judicialmente no Juizado Especial Federal (JEF) ou na Justiça Federal. Uma análise do histórico contributivo (CNIS) e dos laudos médicos costuma revelar a melhor estratégia antes mesmo do protocolo da ação.</p>
         </div>
       </div>
       <div class="faq-item" style="border-bottom:1px solid rgba(255,255,255,0.07)">
@@ -452,7 +627,7 @@ function calcularCarenciaPrev(){
           <span style="color:#d4af37;font-size:20px;flex-shrink:0;transition:transform 0.3s" class="faq-icon">+</span>
         </button>
         <div class="faq-answer" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease">
-          <p style="font-family:'Inter',sans-serif;font-size:14px;color:#999;line-height:1.85;padding-bottom:24px">É o direito do empregado de encerrar o contrato com todos os benefícios da demissão sem justa causa quando o empregador pratica falta grave — como não pagar salário, exigir jornada abusiva, praticar assédio ou descumprir obrigações legais. Prevista no art. 483 da CLT.</p>
+          <p style="font-family:'Inter',sans-serif;font-size:14px;color:#999;line-height:1.85;padding-bottom:24px">Para o BPC/LOAS são necessários: RG, CPF, comprovante de residência atualizado e documentação médica completa (laudos, CID, relatórios de especialistas) para PcD; para idosos, certidão de nascimento ou casamento. Também é exigida comprovação de renda familiar per capita — declaração de renda dos membros do grupo familiar. Quanto mais detalhada a documentação médica, maiores as chances de aprovação.</p>
         </div>
       </div>
       <div class="faq-item" style="border-bottom:1px solid rgba(255,255,255,0.07)">
@@ -461,7 +636,7 @@ function calcularCarenciaPrev(){
           <span style="color:#d4af37;font-size:20px;flex-shrink:0;transition:transform 0.3s" class="faq-icon">+</span>
         </button>
         <div class="faq-answer" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease">
-          <p style="font-family:'Inter',sans-serif;font-size:14px;color:#999;line-height:1.85;padding-bottom:24px">Você pode cobrar os depósitos em atraso diretamente na Justiça do Trabalho, com incidência de correção monetária, juros de mora e multa. O prazo prescricional é de 5 anos (trabalhadores urbanos) ou 2 anos após a extinção do contrato, observado o limite de 5 anos de competências retroativas.</p>
+          <p style="font-family:'Inter',sans-serif;font-size:14px;color:#999;line-height:1.85;padding-bottom:24px">O prazo decadencial para revisão de benefício previdenciário é de 10 anos a contar da data do primeiro pagamento, conforme art. 103 da Lei 8.213/91. Dentro desse prazo é possível recuperar diferenças com correção monetária e juros. As causas mais comuns de revisão incluem: exclusão de períodos de contribuição, salários não computados e aplicação errada das regras de transição da EC 103/2019.</p>
         </div>
       </div>
       <div class="faq-item" style="border-bottom:1px solid rgba(255,255,255,0.07)">
@@ -470,7 +645,7 @@ function calcularCarenciaPrev(){
           <span style="color:#d4af37;font-size:20px;flex-shrink:0;transition:transform 0.3s" class="faq-icon">+</span>
         </button>
         <div class="faq-answer" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease">
-          <p style="font-family:'Inter',sans-serif;font-size:14px;color:#999;line-height:1.85;padding-bottom:24px">Sim. A ausência de registro de ponto não exclui o direito a horas extras — e pode ser interpretada em desfavor do empregador. A prova pode ser feita por testemunhas, e-mails, aplicativos de mensagens e outros meios. O ônus da prova sobre o horário trabalhado é do empregador (Súmula 338 do TST).</p>
+          <p style="font-family:'Inter',sans-serif;font-size:14px;color:#999;line-height:1.85;padding-bottom:24px">Sim. Trabalhadores rurais (segurados especiais), autônomos, MEI, empregados domésticos e contribuintes facultativos têm direito à aposentadoria. O tempo de trabalho rural pode ser comprovado com documentos rurais, contratos, notas fiscais e prova testemunhal. Há também a possibilidade de recolhimento de contribuições em atraso (guia GPS) para completar o tempo necessário em alguns casos.</p>
         </div>
       </div>
       <div class="faq-item" style="border-bottom:1px solid rgba(255,255,255,0.07)">
@@ -479,7 +654,7 @@ function calcularCarenciaPrev(){
           <span style="color:#d4af37;font-size:20px;flex-shrink:0;transition:transform 0.3s" class="faq-icon">+</span>
         </button>
         <div class="faq-answer" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease">
-          <p style="font-family:'Inter',sans-serif;font-size:14px;color:#999;line-height:1.85;padding-bottom:24px">Sim. Se presentes os elementos do art. 3º da CLT — pessoalidade, não eventualidade, onerosidade e subordinação — há fraude ao contrato de emprego, independentemente da roupagem jurídica (PJ, autônomo, cooperado). O vínculo pode ser reconhecido judicialmente com todos os direitos retroativos.</p>
+          <p style="font-family:'Inter',sans-serif;font-size:14px;color:#999;line-height:1.85;padding-bottom:24px">Sim. O cancelamento indevido pode ser contestado administrativamente (recurso ao CRSS) ou judicialmente, com pedido de tutela de urgência para restabelecimento imediato quando há risco à subsistência. A perícia judicial independente e o laudo médico detalhado são essenciais para demonstrar a incapacidade. O benefício pode ser restabelecido com pagamento dos atrasados desde a cessação.</p>
         </div>
       </div>
       <div class="faq-item" style="border-bottom:1px solid rgba(255,255,255,0.07)">
@@ -488,7 +663,7 @@ function calcularCarenciaPrev(){
           <span style="color:#d4af37;font-size:20px;flex-shrink:0;transition:transform 0.3s" class="faq-icon">+</span>
         </button>
         <div class="faq-answer" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease">
-          <p style="font-family:'Inter',sans-serif;font-size:14px;color:#999;line-height:1.85;padding-bottom:24px">Sim. O incapacidade laboral gera direito à reparação por dano moral com base nos arts. 186 e 927 do Código Civil, art. 223-A da CLT e art. 5º, X da CF/88. Em casos mais graves, com comprometimento do projeto de vida, cabe também indenização por dano existencial. Documente tudo: mensagens, e-mails, testemunhos.</p>
+          <p style="font-family:'Inter',sans-serif;font-size:14px;color:#999;line-height:1.85;padding-bottom:24px">Sim, por meio de ação revisional. As causas mais comuns são: cálculo incorreto do salário de benefício, exclusão de vínculos empregatícios do CNIS, não cômputo de tempo especial, e aplicação incorreta das regras de transição da EC 103/2019. Com um CNIS completo e análise do HISCRE, é possível identificar o erro e recuperar as diferenças com correção monetária e juros desde a data de início do benefício.</p>
         </div>
       </div>
       <div class="faq-item" style="border-bottom:1px solid rgba(255,255,255,0.07)">
@@ -497,7 +672,7 @@ function calcularCarenciaPrev(){
           <span style="color:#d4af37;font-size:20px;flex-shrink:0;transition:transform 0.3s" class="faq-icon">+</span>
         </button>
         <div class="faq-answer" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease">
-          <p style="font-family:'Inter',sans-serif;font-size:14px;color:#999;line-height:1.85;padding-bottom:24px">O prazo prescricional é de 2 anos após o término do contrato de trabalho para cobrar até 5 anos de créditos retroativos (art. 7º, XXIX da CF/88). Para o FGTS, o prazo é de 30 anos para os depósitos e 2 anos após a extinção do contrato para a ação de cobrança, conforme jurisprudência do STF (RE 709.212).</p>
+          <p style="font-family:'Inter',sans-serif;font-size:14px;color:#999;line-height:1.85;padding-bottom:24px">O atendimento é 100% online. Você envia seus documentos — CNIS, laudos médicos, cartas de indeferimento do INSS — pelo WhatsApp ou e-mail. Analiso tudo, oriento os próximos passos e protocolo a ação no JEF da sua cidade. Você não precisa se deslocar até Brasília em nenhum momento do processo.</p>
         </div>
       </div>
       <div class="faq-item" style="border-bottom:1px solid rgba(255,255,255,0.07)">
@@ -506,7 +681,7 @@ function calcularCarenciaPrev(){
           <span style="color:#d4af37;font-size:20px;flex-shrink:0;transition:transform 0.3s" class="faq-icon">+</span>
         </button>
         <div class="faq-answer" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease">
-          <p style="font-family:'Inter',sans-serif;font-size:14px;color:#999;line-height:1.85;padding-bottom:24px">Em caso de acidente de trabalho, você tem direito a: estabilidade de 12 meses após a alta médica (art. 118 da Lei 8.213/91), benefício previdenciário (auxílio por incapacidade acidentária — B91), indenização por danos materiais, morais e estéticos quando houver culpa do empregador, além de possível enquadramento como doença ocupacional.</p>
+          <p style="font-family:'Inter',sans-serif;font-size:14px;color:#999;line-height:1.85;padding-bottom:24px">O auxílio por incapacidade temporária (B31/B91) é concedido quando a incapacidade é temporária — há expectativa de recuperação. A aposentadoria por incapacidade permanente (antes chamada de "por invalidez") é devida quando a incapacidade é total e definitiva, sem possibilidade de reabilitação profissional. Ambos exigem perícia médica e carência mínima de 12 contribuições, salvo acidente ou doença do trabalho.</p>
         </div>
       </div>
     </div>
@@ -668,7 +843,7 @@ function calcularCarenciaPrev(){
 
     <!-- Link Google -->
     <div style="text-align:center;margin-top:44px">
-      <a href="https://www.google.com/maps/place/Tairiny+Rodrigues+Advocacia+%7C+Trabalhista+%7C+Previdenci%C3%A1rio+%7C+Banc%C3%A1rio/@-14.239576,-88.3277889,4z" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;font-family:'Inter',sans-serif;font-size:13px;color:#777;text-decoration:none;border:1px solid rgba(255,255,255,0.08);border-radius:50px;padding:10px 24px;transition:all 0.3s" onmouseover="this.style.color='#d4af37';this.style.borderColor='rgba(212,175,55,0.35)'" onmouseout="this.style.color='#777';this.style.borderColor='rgba(255,255,255,0.08)'">
+      <a href="https://share.google/Kmf9ubxMUirv5mz4E" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;font-family:'Inter',sans-serif;font-size:13px;color:#777;text-decoration:none;border:1px solid rgba(255,255,255,0.08);border-radius:50px;padding:10px 24px;transition:all 0.3s" onmouseover="this.style.color='#d4af37';this.style.borderColor='rgba(212,175,55,0.35)'" onmouseout="this.style.color='#777';this.style.borderColor='rgba(255,255,255,0.08)'">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
         Ver todas as avaliações no Google
       </a>
